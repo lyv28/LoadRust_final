@@ -1,0 +1,25 @@
+[package]
+name = "loadbalancer" # Nom du package
+version = "0.1.0" # Version du package
+edition = "2021" # Edition de Rust utilisée
+
+# Les dépendances utilisées par votre projet.
+[dependencies]
+hyper = { version = "0.14", features = ["full"] } # Serveur HTTP asynchrone
+tokio = { version = "1", features = ["full"] } # Runtime asynchrone
+lazy_static = "1.4.0" # Pour des données statiques paresseuses
+governor = "0.4" # Non utilisé explicitement dans les extraits fournis
+futures = "0.3" # Bibliothèque de primitives asynchrones
+
+# Configuration des binaires générés par ce crate.
+[[bin]]
+name = "loadbalancer" # Le binaire principal du load balancer
+path = "src/main.rs"
+
+[[bin]]
+name = "backends1" # Serveur backend 1
+path = "src/backends1.rs"
+
+[[bin]]
+name = "backends2" # Serveur backend 2
+path = "src/backends2.rs"
