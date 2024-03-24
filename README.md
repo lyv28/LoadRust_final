@@ -26,19 +26,31 @@ En utilisant ce projet, vous acceptez ces termes et conditions. Si vous n'êtes 
 - Installer Rust et Cargo si ce n'est pas déjà fait.
 
 # Mise en place de l'environnement
-Pour exécuter ce projet, vous devez avoir Rust et Cargo installés sur votre machine. Si ce n'est pas le cas, suivez les instructions sur [https://www.rust-lang.org/tools/install](https://www.rust-lang.org/tools/install) pour installer Rust et Cargo.
+Pour exécuter ce projet, vous devez avoir Rust et Cargo installés sur votre machine.
 
-## Compilation et exécution
-Pour compiler le projet, naviguez jusqu'au dossier racine du projet dans votre terminal et exécutez :
-cargo build
 
-Pour exécuter le load balancer :
+# Compilation et exécution
+
+## Pour lancer le serveur1
+cargo run --bin backends1
+
+## Pour lancer le serveur 2
+cargo run --bin backends2
+
+## Pour lancer le loadbalancer
 cargo run --bin loadbalancer
 
-Tester le load balancer
-Après avoir lancé le serveur, vous pouvez tester son fonctionnement en utilisant curl ou un navigateur web pour accéder à http://127.0.0.1:8080/. Le load balancer devrait rediriger les requêtes vers l'un des backends configurés
+## Envoyez une requête au load balancer
+curl http://127.0.0.1:8080/
 
-# Benchmarking
+
+## Envoyer une requête au serveur 1
+curl http://127.0.0.1:3000/
+
+##Envoyer une requête au serveur 2
+curl http://127.0.0.1:3001/
+
+# Benchmarking pour mesurer la performance d'un serveur web (tester la capacité du serveur à gérer un volume élevé de requêtes et de voir comment il performe sous charge, en évaluant des métriques comme le temps de réponse, le débit (requêtes par seconde), et d'autres indicateurs de performance.)
 ab -n 1000 -c 10 http://127.0.0.1:8080/
 
 Cela enverra 1000 requêtes au serveur avec 10 requêtes en concurrence.
