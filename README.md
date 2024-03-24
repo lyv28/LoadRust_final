@@ -50,7 +50,9 @@ curl http://127.0.0.1:3000/
 ##Envoyer une requête au serveur 2
 curl http://127.0.0.1:3001/
 
-# Benchmarking pour mesurer la performance d'un serveur web (tester la capacité du serveur à gérer un volume élevé de requêtes et de voir comment il performe sous charge, en évaluant des métriques comme le temps de réponse, le débit (requêtes par seconde), et d'autres indicateurs de performance.)
+# Benchmarking pour mesurer la performance d'un serveur web 
+(tester la capacité du serveur à gérer un volume élevé de requêtes et de voir comment il performe sous charge, en évaluant des métriques comme le temps de réponse, le débit (requêtes par seconde), et d'autres indicateurs de performance.)
+
 ab -n 1000 -c 10 http://127.0.0.1:8080/
 
 Cela enverra 1000 requêtes au serveur avec 10 requêtes en concurrence.
